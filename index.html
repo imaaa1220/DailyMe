@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DailyMe - Personal Daily Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">D</div>
+                <span>DailyMe</span>
+            </div>
+
+            <nav class="navigation">
+                <a href="#dashboard" class="nav-item active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="#tasks" class="nav-item">
+                    <span>✓</span>
+                    Aktivitas
+                </a>
+
+                <a href="#journal" class="nav-item">
+                    <span>✎</span>
+                    Journal
+                </a>
+
+                <a href="#mood" class="nav-item">
+                    <span>♡</span>
+                    Mood
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>Make today count.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+                <div>
+                    <p class="greeting" id="greeting">Selamat datang!</p>
+                    <h1>My Daily Dashboard</h1>
+                </div>
+
+                <div class="date-box">
+                    <span id="currentDay">Hari</span>
+                    <strong id="currentDate">Tanggal</strong>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <section id="dashboard">
+
+                <!-- Progress Card -->
+                <div class="hero-card">
+                    <div class="hero-content">
+                        <span class="eyebrow">DAILY PROGRESS</span>
+
+                        <h2>Jadikan hari ini lebih baik.</h2>
+
+                        <p>
+                            Selesaikan aktivitasmu sedikit demi sedikit
+                            dan nikmati progress setiap harinya.
+                        </p>
+
+                        <div class="progress-wrapper">
+                            <div class="progress-bar">
+                                <div
+                                    class="progress-fill"
+                                    id="progressFill">
+                                </div>
+                            </div>
+
+                            <span id="progressText">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-circle">
+                        <span id="progressCircleText">0%</span>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">✓</div>
+
+                        <div>
+                            <span>Aktivitas</span>
+                            <strong id="totalTasks">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">✓</div>
+
+                        <div>
+                            <span>Selesai</span>
+                            <strong id="completedTasks">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">!</div>
+
+                        <div>
+                            <span>Tersisa</span>
+                            <strong id="remainingTasks">0</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Tasks & Mood -->
+            <div class="content-grid">
+
+                <!-- Tasks -->
+                <section class="card tasks-card" id="tasks">
+
+                    <div class="card-header">
+                        <div>
+                            <span class="section-label">TODAY</span>
+                            <h2>Aktivitas Hari Ini</h2>
+                        </div>
+
+                        <span class="task-count" id="taskCount">
+                            0 aktivitas
+                        </span>
+                    </div>
+
+                    <!-- Add Task -->
+                    <form id="taskForm" class="task-form">
+
+                        <input
+                            type="text"
+                            id="taskInput"
+                            placeholder="Tambahkan aktivitas..."
+                            autocomplete="off"
+                            required
+                        >
+
+                        <button type="submit">
+                            + Tambah
+                        </button>
+
+                    </form>
+
+                    <!-- Task List -->
+                    <div id="taskList" class="task-list">
+
+                        <div class="empty-state" id="emptyState">
+                            <div class="empty-icon">✓</div>
+                            <h3>Belum ada aktivitas</h3>
+                            <p>
+                                Tambahkan sesuatu yang ingin kamu
+                                selesaikan hari ini.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Mood -->
+                <section class="card mood-card" id="mood">
+
+                    <div class="card-header">
+                        <div>
+                            <span class="section-label">MOOD</span>
+                            <h2>Bagaimana perasaanmu?</h2>
+                        </div>
+                    </div>
+
+                    <div class="mood-list">
+
+                        <button class="mood-button" data-mood="Sangat Bahagia">
+                            <span>😄</span>
+                            <small>Bahagia</small>
+                        </button>
+
+                        <button class="mood-button" data-mood="Senang">
+                            <span>🙂</span>
+                            <small>Senang</small>
+                        </button>
+
+                        <button class="mood-button" data-mood="Biasa">
+                            <span>😐</span>
+                            <small>Biasa</small>
+                        </button>
+
+                        <button class="mood-button" data-mood="Sedih">
+                            <span>😔</span>
+                            <small>Sedih</small>
+                        </button>
+
+                        <button class="mood-button" data-mood="Stres">
+                            <span>😫</span>
+                            <small>Stres</small>
+                        </button>
+
+                    </div>
+
+                    <div class="selected-mood">
+                        <span>Mood hari ini:</span>
+                        <strong id="selectedMood">
+                            Belum dipilih
+                        </strong>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- Journal -->
+            <section class="card journal-card" id="journal">
+
+                <div class="card-header">
+                    <div>
+                        <span class="section-label">JOURNAL</span>
+                        <h2>Catatan Hari Ini</h2>
+                    </div>
+
+                    <span class="save-status" id="saveStatus">
+                        Tersimpan otomatis
+                    </span>
+                </div>
+
+                <textarea
+                    id="journalInput"
+                    placeholder="Tuliskan apa yang kamu rasakan, pikirkan, atau syukuri hari ini..."
+                ></textarea>
+
+                <div class="journal-footer">
+                    <span>
+                        <span id="characterCount">0</span> karakter
+                    </span>
+
+                    <button id="clearJournal" class="secondary-button">
+                        Hapus Catatan
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- Reset -->
+            <div class="reset-area">
+                <button id="resetDay" class="reset-button">
+                    ↻ Reset Hari Ini
+                </button>
+            </div>
+
+            <footer>
+                <p>DailyMe © 2026 — Take care of yourself.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
